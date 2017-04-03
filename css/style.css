@@ -1,0 +1,132 @@
+/*css reset*/
+*{
+    margin: 0;
+    padding:0;
+}
+img{
+    border:0;
+}
+ul,ol{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+html{
+    font-size: 14px;
+}
+/*css reset 结束*/
+/*header开始*/
+   .banner{
+       height:371px;
+       padding: 75px 0;
+       background:url("../img/banner6.jpg") no-repeat 0 0;
+       background-size:cover;
+       color: white;
+       text-align: center;
+       overflow: hidden;
+   }
+   .banner img{
+       vertical-align: middle;
+       width: 43%;
+   }
+   .b-part2 h3,.b-part2 h4{
+       margin-bottom: 30px;
+   }
+   .banner .b-part{
+       width: 20%;
+       height: 220px;
+       float: left;
+       margin-right: 5%;
+   }
+    .b-part3 h3{
+        margin-bottom: 20px;
+    }
+    .banner .b-part4{
+        margin-right: 0;
+    }
+    .b-part3 .icon{
+        width: 54px;
+        height: 40px;
+        border:3px solid #ffffff;
+        margin-right: 15px;
+    }
+@media screen and (max-width:768px){
+    .banner .container{
+        width: 90%;
+        margin: auto;
+    }
+    .banner .b-part{
+        width:25%;
+        margin: 0;
+        height: 220px;
+        float: left;
+    }
+    .b-part1 h2{
+        font-size: 1.5rem;
+    }
+    .b-part1 h3{
+        font-size: 1.2rem;
+    }
+    .b-part2 h3{
+        margin-top: 0;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    .b-part2 h4{
+        font-size: 1.1rem;
+        margin-bottom: 18px;
+    }
+
+    .b-part3 h3{
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    .b-part4 h3{
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    .b-part4 h4{
+        font-size: 1.2rem;
+    }
+
+}
+    @media screen and (max-width:480px){
+        .banner{
+            height: 420px;
+            padding: 50px 0;
+        }
+        .banner .container{
+            width: 90%;
+            margin: auto;
+        }
+        .banner .b-part{
+            width: 40%;
+            height:163px;
+            float: left;
+            margin-bottom: 20px;
+        }
+        .b-part1 h2{
+            font-size: 1.5rem;
+        }
+        .b-part1 h3{
+            font-size: 1.1rem;
+        }
+        .b-part2 h3{
+            margin-top: 0;
+            font-size: 2rem;
+        }
+        .b-part2 h4{
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        .b-part4 h4{
+            font-size: 1.2rem;
+        }
+    }
+/*header结束*/
