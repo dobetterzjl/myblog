@@ -42,7 +42,7 @@
     <div id="about">
         <div class="container">
                 <h3>ABOUT ME</h3>
-                <span class="line"></span>
+                <span class="liner"></span>
                 <img src="img/1.jpg">
                 <p class="introduce">
                     张建丽：黑龙江大学，计算机科学技术学院，物联网工程专业2014级学生，
@@ -61,20 +61,136 @@
     </div>
     <div id="skills">
         <div class="container">
-
+            <h2>MY SKILLS</h2>
+            <span class="liner"></span>
+            <div class="skill-left ">
+                <div class="s2">
+                    <p class="name">HTML/CSS</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:90%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">html5/css3</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">JavaScript</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:75%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">jQuery</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:70%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-right ">
+                <div class="s2">
+                    <p class="name">NodeJS</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:50%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">PHP</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:65%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">BootStrap</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:80%"></div>
+                    </div>
+                </div>
+                <div class="s2">
+                    <p class="name">ReactJs</p>
+                    <div class="progress line">
+                        <div class="progress-bar progress-bar-info" style="width:60%"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div id="protfolia">
-        <div class="container"></div>
+        <div class="container">
+            <h2>MY PROTFOLIA</h2>
+            <span class="liner"></span>
+            <ul class="prot-list">
+                <li class="prot-li clickStyle"><a>ALL</a></li>
+                <li class="prot-li"><a>WEB</a></li>
+                <li class="prot-li"><a>MOBILE</a></li>
+                <li class="prot-li"><a>TREND</a></li>
+            </ul>
+                <ul id="prot-obj">
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                    <li class="prot-one">
+                        <img  src="img/g1.jpg"/>
+                        <div class="shadow"></div>
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+<!--                        <div class="shadow"></div>-->
+                    </li>
+                    <li class="prot-one">
+                        <img src="img/g1.jpg"/>
+                    </li>
+                </ul>
+            </div>
     </div>
     <div id="contect">
         <div class="container">
-
+            <h2>Contact</h2>
+            <span class="liner"></span>
+            <div class="contect-message">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <h4>黑龙江大学</h4>
+                    <h4>哈尔滨市，南岗区学府路74号</h4>
+            </div>
+            <div class="contect-message">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <h4><a href="mailto:info@example.com">1737289219@qq.com</a></h4>
+                <h4><a href="mailto:info@example.com">hljuzjl@163.com</a></h4>
+            </div>
+            <div class="contect-message">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <h4>+18044261158</h4>
+                <h4>+17365481278</h4>
+            </div>
+            <form action="#" method="post" class="mess-form">
+                <input type="text" name="name" class="name" placeholder="Your Name" required>
+                <input type="text" name="email" class="email" placeholder="Your Email" required>
+                <textarea  name="your message" placeholder="Your Message"  required></textarea>
+                <input type="submit" value="Send Message">
+            </form>
         </div>
     </div>
     <footer id="footer">
         <div class="container"></div>
     </footer>
 <script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/index.js"></script>
 </body>
 </html>
