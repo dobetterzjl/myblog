@@ -8,20 +8,21 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
     <header class="banner">
         <div class="container">
             <div class="b-part b-part1">
                 <img src="img/1.jpg" alt=" "/>
-                <h2>Kristin Stewart</h2>
+                <h2>张建丽</h2>
                 <h3>Web Designer</h3>
             </div>
             <div class="b-part b-part2">
                 <h3>Contact</h3>
-                <h4><a href="mailto:info@example.com">exam@gmail.com</a></h4>
-                <h4 class="agile">+18044261158</h4>
-                <h4>Richmond,USA</h4>
+                <h4><a href="mailto:info@example.com">1737289219@qq.com</a></h4>
+                <h4 class="agile">15776805420</h4>
+                <h4>哈尔滨</h4>
             </div>
             <div class="b-part b-part3">
                 <h3>Follow</h3>
@@ -123,40 +124,43 @@
             <span class="liner"></span>
             <ul class="prot-list">
                 <li class="prot-li clickStyle"><a>ALL</a></li>
-                <li class="prot-li"><a>WEB</a></li>
-                <li class="prot-li"><a>MOBILE</a></li>
-                <li class="prot-li"><a>TREND</a></li>
+                <?php
+                    foreach ($categories as $category){
+                ?>
+<!--                <li class="prot-li"><a>--><?php //echo $category->cate_name;?><!--</a></li>-->
+                <li class="prot-li" data-id="<?php echo $category->cate_id;?>"><?php echo $category->cate_name;?></li>
+                <?php
+                    }
+                ?>
             </ul>
                 <ul id="prot-obj">
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
-                    <li class="prot-one">
-                        <img  src="img/g1.jpg"/>
-                        <div class="shadow"></div>
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-<!--                        <div class="shadow"></div>-->
-                    </li>
-                    <li class="prot-one">
-                        <img src="img/g1.jpg"/>
-                    </li>
+                    <?php
+                        foreach ($blogs as $blog) {
+                            ?>
+                            <li class="prot-one">
+                                <a href="welcome/view_blog?blogId=<?php echo $blog->blog_id;?>">
+                                    <div class="img">
+                                        <img src="<?php echo $blog->big_img;?>" class="image">
+                                        <div class="shade">
+                                            <h4>标题：<?php echo $blog->title;?></h4>
+                                            <small>访问量：<?php echo $blog->clicked;?></small>
+                                            <br/>
+                                            <i class="fa fa-search fa-lg"></i>
+                                        </div>
+
+                                    </div>
+<!--                                </a>-->
+<!--                                <img src="--><?php //echo $blog->img?><!--"/>-->
+<!--                                <div class="shade">-->
+<!--                                    <h4>标题：--><?php //echo $blog->title;?><!--</h4>-->
+<!--                                    <small>访问量：--><?php //echo $blog->clicked;?><!--</small>-->
+<!--                                    <br/>-->
+<!--                                    <i class="fa fa-search fa-lg"></i>-->
+<!--                                </div>-->
+                            </li>
+                            <?php
+                        }
+                    ?>
                 </ul>
             </div>
     </div>

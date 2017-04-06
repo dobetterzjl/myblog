@@ -1,0 +1,75 @@
+body{
+    background-color:#ebebeb;
+}
+.wrapper{
+    width: 90%;
+    margin: 0 auto;
+}
+#artical-content .title{
+    color: black;
+    text-align: left;
+    text-transform: uppercase;
+    padding: 15px 0;
+    font-size: 3rem ;
+}
+#artical-content .img{
+    width: 100%;
+    max-height: 300px;
+}
+#artical-content  .artical-info{
+    padding:10px 0;
+    border: 1px dashed rgba(0,0,0,0.61);
+    border-left:none;
+    margin-top: 5px;
+    border-right:none;
+    overflow: hidden;
+}
+.artical-info li{
+    float: left;
+    color: #000;
+    padding:10px 0;
+    font-size: 1.5rem;
+    margin-right: 30px;
+}
+#artical-content .content{
+    padding:10px 0;
+    font-size: 1.6rem;
+}
+#artical-comment h3{
+    color: #000;
+    text-align: left;
+    text-transform: none;
+    padding-top:14px;
+    margin:0;
+    font-size: 2rem;
+}
+#artical-comment .comment-info{
+    font-size: 1.8rem;
+}
+#artical-comment .comment{
+    margin:1.5rem 0;
+    padding:1.5rem;
+    background:#c7c7c7;
+    width: 70%;
+}
+.text-box{
+    border:none;
+    outline:none;
+    padding:1rem;
+    margin-top: 23px;
+    color: #000;
+    overflow:hidden;
+    width: 40%;
+    display: block;
+    font-size: 1rem;
+}
+#artical-comment .comment-form input[type=submit]{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 1.5rem;
+    display: block;
+    font-weight: 700;
+    padding:0.5rem 1rem;
+    margin: 0.8rem 0 0;
+    background-color: darkturquoise;
+}

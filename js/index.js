@@ -3,8 +3,8 @@ $(function(){
       $(this).addClass('clickStyle').siblings().removeClass('clickStyle');
   });
     $('.prot-one img').hover(function () {
-       $(this).siblings('.shadow').show() ;
+       $(this).siblings('.shade').show() ;
     },function () {
-        $(this).siblings('.shadow').hide();
+        $(this).siblings('.shade').hide();
     });
 });
