@@ -19,3 +19,4 @@ ul 中嵌套li 时，li float:left/right 如果想要li在ul中利用text-align:
  </ul>
 ```
 设置li宽高，以及将img设置width：100%；height：100%；则图片可以在各个分辨率下按比例缩放
+3.自己利用css3 @media screen and (max-width:768px){}这种格式写响应式时，一定要注意选择器的权重值>=上一个截点的权重值 and和 (max-width:768px)之间一定要加空格！
