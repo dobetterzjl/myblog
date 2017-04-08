@@ -1,0 +1,44 @@
+#blog-list li{
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    margin-bottom: 18px;
+}
+#blog-list img{
+    width: 100%;
+    height: 247px;
+}
+#blog-list p{
+    text-align: center;
+}
+#blog-list .desc{
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.5rem;
+    margin: 0.5rem 0 1rem;
+}
+#blog-list .read{
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #ffffff;
+    background-color: orange;
+    border-radius: 0.2rem;
+    text-align: center;
+}
+#more{
+    text-align: center;
+    clear: both;
+}
+#btn-more{
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 0.2rem;
+    font-size: 1.5rem;
+    border: 0;
+    background-color: orange;
+    margin-bottom: 20px;
+}

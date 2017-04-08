@@ -12,16 +12,7 @@
 </head>
 <body>
     <header class="banner">
-        <div id="header">
-            <ul class="menu">
-                <li><a href="#contect" class="scroll">CONTACT</a></li>
-                <li><a href="#protfolia" class="scroll">PORTFOLIA</a></li>
-                <li><a href="#blog" class="scroll">BLOG</a></li>
-                <li><a href="#skills" class="scroll">SKILLS</a></li>
-                <li><a href="#about" class="scroll">ABOUT</a></li>
-                <li><a href="#">HOME</a></li>
-            </ul>
-        </div>
+        <?php include 'header.php';?>
         <div class="container">
 
             <div>
@@ -207,7 +198,6 @@
     <footer id="footer">
         <div class="container"></div>
     </footer>
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/index.js"></script>
+<script src="js/require.js" data-main="js/index"></script>
 </body>
 </html>

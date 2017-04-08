@@ -24,5 +24,11 @@
                 $this->db->where('blog.blog_id', $blog_id);
                 return $this->db->get()->row();
             }
+            public function get_by_page($offset=0){
+                $this->db->order_by('post_date','desc');
+                $this->db->limit(6,$offset);
+                $rs=$this->db->get('t_blog');
+                return $rs->result();
+            }
         }
 ?>

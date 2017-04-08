@@ -1,5 +1,9 @@
 body{
     background-color:#ebebeb;
+    width: 100%;
+}
+#artical-content{
+    position: relative;
 }
 .wrapper{
     width: 90%;

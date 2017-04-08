@@ -1,4 +1,4 @@
-$(function () {
+require(['jquery','scrollfix'],function ($) {
     $('#btn-send').on('click',function () {
         var $username = $('#username');
         var $email = $('#email');
@@ -30,5 +30,7 @@ $(function () {
                 alert("评论失败");
             }
         },'text');
-    });
+    }); 
 });
+    
+

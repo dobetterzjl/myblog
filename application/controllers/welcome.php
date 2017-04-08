@@ -49,5 +49,18 @@ class Welcome extends CI_Controller {
 			echo "failed";
 		};
 	}
+	public function blog_list(){
+		$this->load->model('blog_model');
+		$blogs=$this->blog_model->get_by_page();
+		$this->load->view('blog_list',array(
+			'blogs'=>$blogs
+		));
+	}
+	public function get_more(){
+		$offset = $this->input->get('clickNum');
+		$this->load->model('blog_model');
+		$blogs=$this->blog_model->get_by_page($offset);
+		echo json_encode($blogs);
+	}
 }
 

@@ -18,8 +18,11 @@
     </script>
 </head>
 <body>
+
 <div id = "artical-content">
+    <?php include 'header.php'?>
     <div class="wrapper">
+        
         <h3 class="title"><?php echo $blog->title;?></h3>
         <img src="<?php echo $blog->img;?>" class="img" alt="">
         <p class="content"><?php echo $blog->content;?> </p>
@@ -64,6 +67,6 @@
     </div>
 </div>
 </body>
-<script src="js/jquery-1.12.4.min.js"></script>
-<script src="js/detail.js"></script>
+<script src="js/require.js" data-main="js/detail"></script>
+
 </html>

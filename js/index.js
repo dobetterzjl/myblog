@@ -1,9 +1,9 @@
-$(function(){
-  $('.prot-li').on('click',function () {
-      $(this).addClass('clickStyle').siblings().removeClass('clickStyle');
-  });
+require(['jquery','scrollfix'],function ($) {
+    $('.prot-li').on('click',function () {
+        $(this).addClass('clickStyle').siblings().removeClass('clickStyle');
+    });
     $('.prot-one .img').hover(function () {
-       $(this).children('.shade').show() ;
+        $(this).children('.shade').show() ;
     },function () {
         $(this).children('.shade').hide();
     });
@@ -27,18 +27,6 @@ $(function(){
             scrollTop:$(this.hash).offset().top
         },1200);
     });
-    window.onscroll = function() {
-        var iScrollTop = document.documentElement.scrollTop ||
-            document.body.scrollTop;
-        if (iScrollTop >= 50) {//50为滚动条想要的高度
-            var oTitle = document.getElementById('header');
-            oTitle.style.position = "fixed"
-            oTitle.style.left = 0;
-            oTitle.style.top = 0;
-        }
-        else {
-            var oTitle = document.getElementById('header');
-            oTitle.style.position = "static";
-        }
-    };
+
 });
+
