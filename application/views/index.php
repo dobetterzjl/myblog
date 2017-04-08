@@ -12,7 +12,19 @@
 </head>
 <body>
     <header class="banner">
+        <div id="header">
+            <ul class="menu">
+                <li><a href="#contect" class="scroll">CONTACT</a></li>
+                <li><a href="#protfolia" class="scroll">PORTFOLIA</a></li>
+                <li><a href="#blog" class="scroll">BLOG</a></li>
+                <li><a href="#skills" class="scroll">SKILLS</a></li>
+                <li><a href="#about" class="scroll">ABOUT</a></li>
+                <li><a href="#">HOME</a></li>
+            </ul>
+        </div>
         <div class="container">
+
+            <div>
             <div class="b-part b-part1">
                 <img src="img/1.jpg" alt=" "/>
                 <h2>张建丽</h2>
@@ -36,6 +48,7 @@
                 <i class="fa fa-behance" aria-hidden="true"></i>
                 <h4>Follow my behance portfolio</h4>
             </div>
+                </div>
             <div class="clearfix"></div>
         </div>
         </div>
@@ -123,7 +136,7 @@
             <h2>MY PROTFOLIA</h2>
             <span class="liner"></span>
             <ul class="prot-list">
-                <li class="prot-li clickStyle"><a>ALL</a></li>
+                <li class="prot-li clickStyle" data-id=0 >ALL</li>
                 <?php
                     foreach ($categories as $category){
                 ?>

@@ -14,5 +14,40 @@ class Welcome extends CI_Controller {
 		));
 		
 	}
+	public function get_blog(){
+		$this->load->model('blog_model');
+		$cate_id =$this->input->get('cateId');
+		if($cate_id==0){
+			$blogs = $this->blog_model->get_all();
+		}else{
+			$blogs=$this->blog_model->get_by_category($cate_id);
+		}
+		echo json_encode($blogs);
+	}
+	public function view_blog(){
+		$id=$this->input->get('blogId');
+		$this->load->model('blog_model');
+		$this->load->model('comment_model');
+		$blog=$this->blog_model->get_by_id($id);
+		$blog->comments= $this->comment_model->get_by_blog($id);
+		$this->load->view('blog_detail',array(
+			'blog'=>$blog
+
+		));
+	}
+	public function save_comment(){
+		$username = $this->input->get('username');
+		$email = $this->input->get('email');
+		$phone = $this->input->get('phone');
+		$message = $this->input->get('message');
+		$hid = $this->input->get('blogHid');
+		$this->load->model('comment_model');
+		$addcomment=$this->comment_model->insert_comment($username,$email,$phone,$message,$hid);
+		if($addcomment){
+			echo "success";
+		}else{
+			echo "failed";
+		};
+	}
 }
 

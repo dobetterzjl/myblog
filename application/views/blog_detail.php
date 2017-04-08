@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>文章详情</title>
     <base href="<?php echo site_url();?>">
-    <link rel="stylesheet" href="<?php echo site_url();?>css/style.css">
-    <link rel="stylesheet" href="<?php echo site_url();?>css/blog_detail.css">
-    <link rel="stylesheet" href="<?php echo site_url();?>css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"  href="css/style.css">
+    <link rel="stylesheet" type="text/css"  href="css/blog_detail.css">
+    <link rel="stylesheet" type="text/css"  href="css/font-awesome.min.css">
     <meta name ="viewport" content="width=device-width,initial-scale=1">
     <script>
-        window.AddEventListener("load",function(){
+        window.addEventListener("load",function(){
             setTimeout(hideURLbar,0);
         },false);
         function hideURLbar(){
@@ -32,29 +32,38 @@
 </div>
 <div id="artical-comment">
     <div class="wrapper">
-        <h3><span class="comment-num">3</span>Responses</h3>
+        <h3><span class="comment-num"><?php echo count($blog->comments)?></span>Responses</h3>
         <ul class="comment-list">
-            <li class="comment">
-                <div class="comment-info">
-                    <span class="username">Admin</span>
-                    <span class="post-date">2016-1</span>
-                </div>
-                <p class="content">xcc zcc zcx</p>
-            </li>
+            <?php 
+                    foreach($blog->comments as $comment){
+                ?>
+                <li class="comment">
+                    <div class="comment-info">
+                        <span class="username"><?php echo $comment->username;?></span>
+                        <span class="post-date"><?php echo $comment->post_date;?></span>
+                    </div>
+                    <p class="content"><?php echo $comment->message;?></p>
+                </li>
+                <?php
+            }
+            ?>
         </ul>
 
         <div class="comment-form">
             <h3>leave a comment</h3>
-            <form action="" method="post">
+            <form>
+                <p><input type="hidden" id="hide_id" value="<?php echo $blog->blog_id;?>"></p>
                 <p><input type="text" class="text-box" placeholder="Name" id="username" name="username"></p>
                 <p><input type="email" class="text-box" placeholder="Email" id="email" name="email"></p>
                 <p><input type="tel" class="text-box" placeholder="Telephone Number" id="phone" name="phone"></p>
                 <p><textarea name="message" class="text-box" id="message" cols="30" rows="10"></textarea></p>
-                <p ><input type="submit" value="Send"></p>
+                <p ><input type="button" value="Send" id="btn-send"></p>
             </form>
 
         </div>
     </div>
 </div>
 </body>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script src="js/detail.js"></script>
 </html>
