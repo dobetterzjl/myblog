@@ -12,9 +12,41 @@ class Welcome extends CI_Controller {
         $this->load->view('admin/admin_category');
     }
     public function blog(){
-        $this->load->model('blog_category');
-        $categories=$this->blog_category->get_all();
-        
-        $this->load->view('admin/admin_blog');
+        $this->load->model('blog_category_model');
+        $this->load->model('blog_model');
+        $total_row=$this->blog_model->get_all_count();
+        $offset=$this->uri->segment(3);
+        $offset=!$offset?0:$offset;
+//        分页配置开始
+        $this->load->library('pagination');
+        $config['base_url']='admin/blog/';//注意后面加/
+        $config['total_rows']=$total_row;
+        $config['per_page']=6;
+        $config['uri_segment']=3;
+        $config['first_link']="首页";
+        $config['last_link']="尾页";
+        $config['prev_link']="上一页";
+        $config['next_link']="下一页";
+        $config['num_tag_open']='<li>';
+        $config['num_tag_close']='</li>';
+        $config['first_tag_open']='<li>';
+        $config['first_tag_close']='</li>';
+        $config['last_tag_open']='<li>';
+        $config['last_tag_close']='</li>';
+        $config['cur_tag_open']='<li class="am-active am-disabled"><a href="comment/paging/" class="comment_selected">';
+        $config['cur_tag_close']='</a></li>';
+        $config['next_tag_open']='<li>';
+        $config['next_tag_close']='</li>';
+        $config['prev_tag_open']='<li>';
+        $config['prev_tag_close']='</li>';
+        $this->pagination->initialize($config);
+//        分页配置结束
+
+        $categories=$this->blog_category_model->get_all();
+        $blogs=$this->blog_model->get_by_page($config['per_page'],$offset);
+        $this->load->view('admin/admin_blog',array(
+            'categories'=>$categories,
+            'blogs'=>$blogs
+        ));
     }
 }

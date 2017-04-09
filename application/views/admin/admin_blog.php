@@ -48,12 +48,13 @@
                     <div class="am-form-group">
                         <select data-am-selected="{btnSize: 'sm'}">
                             <option value="option1">所有类别</option>
-                            <option value="option2">IT业界</option>
-                            <option value="option3">数码产品</option>
-                            <option value="option3">笔记本电脑</option>
-                            <option value="option3">平板电脑</option>
-                            <option value="option3">只能手机</option>
-                            <option value="option3">超极本</option>
+                            <?php
+                            foreach($categories as $category){
+                                ?>
+                                <option value="<?php echo $category->cate_id;?>"><?php echo $category->cate_name;?></option>
+                            <?php
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -81,36 +82,36 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td><input type="checkbox" /></td>
-                                <td>1</td>
-                                <td><a href="#">Business management</a></td>
-                                <td>default</td>
-                                <td class="am-hide-sm-only">测试1号</td>
-                                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                <td>
-                                    <div class="am-btn-toolbar">
-                                        <div class="am-btn-group am-btn-group-xs">
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                                            <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-                                            <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                            <?php
+                            foreach($blogs as $blog){
+                                ?>
+                                <tr>
+                                    <td><input type="checkbox" /></td>
+                                    <td><?php echo $blog->blog_id;?></td>
+                                    <td><a href="#"><?php echo $blog->title;?></a></td>
+                                    <td><?php echo $blog->cate_name;?></td>
+                                    <td class="am-hide-sm-only"><?php echo $blog->clicked;?></td>
+                                    <td class="am-hide-sm-only"><?php echo $blog->post_date;?></td>
+                                    <td>
+                                        <div class="am-btn-toolbar">
+                                            <div class="am-btn-group am-btn-group-xs">
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
                                </tbody>
                         </table>
                         <div class="am-cf">
-                            共 15 条记录
+                            共 <?php echo count($blogs);?> 条记录
                             <div class="am-fr">
                                 <ul class="am-pagination">
-                                    <li class="am-disabled"><a href="#">«</a></li>
-                                    <li class="am-active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">»</a></li>
+                              <?php echo $this->pagination->create_links();?>
                                 </ul>
                             </div>
                         </div>

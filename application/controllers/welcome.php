@@ -59,7 +59,7 @@ class Welcome extends CI_Controller {
 	public function get_more(){
 		$offset = $this->input->get('clickNum');
 		$this->load->model('blog_model');
-		$blogs=$this->blog_model->get_by_page($offset);
+		$blogs=$this->blog_model->get_by_page(6,$offset);
 		echo json_encode($blogs);
 	}
 }
