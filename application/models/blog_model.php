@@ -24,19 +24,25 @@
                 $this->db->where('blog.blog_id', $blog_id);
                 return $this->db->get()->row();
             }
-            public function get_by_page($limit=6,$offset=0){
+            public function get_by_page($cate_id,$limit=6,$offset=0){
                 $this->db->select('blog.*,cate.cate_name');
                 $this->db->from('t_blog blog');
                 $this->db->join('t_blog_category cate', 'blog.cate_id = cate.cate_id');
                 $this->db->order_by('blog.post_date','desc');
+                if($cate_id!=0){
+                    $this->db->where('cate.cate_id',$cate_id);
+                }
                 $this->db->limit($limit,$offset);
                 $rs=$this->db->get();
                 return $rs->result();
             }
-            public function get_all_count(){
+            public function get_all_count($cate_id){
                     $this->db->select('blog.*,cate.cate_name');
                     $this->db->from('t_blog blog');
                     $this->db->join('t_blog_category cate', 'blog.cate_id = cate.cate_id');
+                    if($cate_id!=0){
+                        $this->db->where('cate.cate_id',$cate_id);
+                    }
                     return $this->db->count_all_results();
             }
         }

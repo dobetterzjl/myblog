@@ -11,18 +11,18 @@ class Welcome extends CI_Controller {
     public function category(){
         $this->load->view('admin/admin_category');
     }
-    public function blog(){
+    public function blog($cate_id=0,$offset=0){
         $this->load->model('blog_category_model');
         $this->load->model('blog_model');
-        $total_row=$this->blog_model->get_all_count();
-        $offset=$this->uri->segment(3);
-        $offset=!$offset?0:$offset;
+        $total_row=$this->blog_model->get_all_count($cate_id);
+//        $offset=$this->uri->segment(3);
+//        $offset=!$offset?0:$offset;
 //        分页配置开始
         $this->load->library('pagination');
-        $config['base_url']='admin/blog/';//注意后面加/
+        $config['base_url']='admin/blog/'.$cate_id.'/';//注意后面加/
         $config['total_rows']=$total_row;
         $config['per_page']=6;
-        $config['uri_segment']=3;
+        $config['uri_segment']=4;
         $config['first_link']="首页";
         $config['last_link']="尾页";
         $config['prev_link']="上一页";
@@ -43,7 +43,7 @@ class Welcome extends CI_Controller {
 //        分页配置结束
 
         $categories=$this->blog_category_model->get_all();
-        $blogs=$this->blog_model->get_by_page($config['per_page'],$offset);
+        $blogs=$this->blog_model->get_by_page($cate_id,$config['per_page'],$offset);
         $this->load->view('admin/admin_blog',array(
             'categories'=>$categories,
             'blogs'=>$blogs

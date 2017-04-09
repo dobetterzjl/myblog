@@ -1,3 +1,6 @@
+<?php
+    $cateId = $this->uri->segment(3);
+?>
 <!doctype html>
 <html class="no-js">
 <head>
@@ -21,20 +24,16 @@
 <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
     以获得更好的体验！</p>
 <![endif]-->
-<?php include 'admin_header.php'?>
-<div class="am-cf admin-main">
+    <?php include 'admin_header.php'?>
+    <div class="am-cf admin-main">
     <?php include 'admin_sidebar.php'?>
-
-
     <!-- content start -->
     <div class="admin-content">
         <div class="admin-content-body">
             <div class="am-cf am-padding am-padding-bottom-0">
                 <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">文章</strong></div>
             </div>
-
             <hr>
-
             <div class="am-g">
                 <div class="am-u-sm-12 am-u-md-6">
                     <div class="am-btn-toolbar">
@@ -46,12 +45,12 @@
                 </div>
                 <div class="am-u-sm-12 am-u-md-3">
                     <div class="am-form-group">
-                        <select data-am-selected="{btnSize: 'sm'}">
-                            <option value="option1">所有类别</option>
+                        <select data-am-selected="{btnSize: 'sm'}" id="category">
+                            <option value="0">所有类别</option>
                             <?php
                             foreach($categories as $category){
                                 ?>
-                                <option value="<?php echo $category->cate_id;?>"><?php echo $category->cate_name;?></option>
+                                <option value="<?php echo $category->cate_id;?>" <?php echo $category->cate_id==$cateId ? 'selected':''?>><?php echo $category->cate_name;?></option>
                             <?php
                             }
                             ?>
@@ -141,9 +140,18 @@
 <![endif]-->
 
 <!--[if (gte IE 9)|!(IE)]><!-->
-<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.js"></script>
 <!--<![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/app.js"></script>
+<script>
+    $(function(){
+        $('#category').on('change',function () {
+            var selectedId=$(this).find('option').eq(this.selectedIndex).val();
+            console.log(selectedId);
+            location.href="admin/blog/"+selectedId;
+        });
+    })
+</script>
 </body>
 </html>
