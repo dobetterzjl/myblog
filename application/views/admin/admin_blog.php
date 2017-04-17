@@ -1,5 +1,6 @@
 <?php
     $cateId = $this->uri->segment(3);
+    $title= $this->input->get('title');
 ?>
 <!doctype html>
 <html class="no-js">
@@ -38,7 +39,7 @@
                 <div class="am-u-sm-12 am-u-md-6">
                     <div class="am-btn-toolbar">
                         <div class="am-btn-group am-btn-group-xs">
-                            <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+                            <button type="button" class="am-btn am-btn-default" id="addBlog"><span class="am-icon-plus"></span> 新增</button>
                             <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                         </div>
                     </div>
@@ -58,13 +59,15 @@
                     </div>
                 </div>
                 <div class="am-u-sm-12 am-u-md-3">
+                    <form name="" action="admin/blog/<?php echo $cateId;?>" method="get">
                     <div class="am-input-group am-input-group-sm">
-                        <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
+                        <input type="text" class="am-form-field" name="title" value="<?php echo $title;?>">
+                          <span class="am-input-group-btn">
+                            <button class="am-btn am-btn-default" type="button">搜索</button>
+                          </span>
                     </div>
                 </div>
+                </form>
             </div>
 
             <div class="am-g">
@@ -149,7 +152,10 @@
         $('#category').on('change',function () {
             var selectedId=$(this).find('option').eq(this.selectedIndex).val();
             console.log(selectedId);
-            location.href="admin/blog/"+selectedId;
+            location.href="admin/blog/"+selectedId+'?title=<?php echo $title;?>';
+        });
+        $('#addBlog').on('click',function(){
+           location.href="admin/add_blog"; 
         });
     })
 </script>

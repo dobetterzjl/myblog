@@ -24,7 +24,7 @@
                 $this->db->where('blog.blog_id', $blog_id);
                 return $this->db->get()->row();
             }
-            public function get_by_page($cate_id,$limit=6,$offset=0){
+            public function get_by_page($cate_id,$title,$limit=6,$offset=0){
                 $this->db->select('blog.*,cate.cate_name');
                 $this->db->from('t_blog blog');
                 $this->db->join('t_blog_category cate', 'blog.cate_id = cate.cate_id');
@@ -32,17 +32,23 @@
                 if($cate_id!=0){
                     $this->db->where('cate.cate_id',$cate_id);
                 }
+                if($title){
+                    $this->db->like('blog.title',$title);
+                }
                 $this->db->limit($limit,$offset);
                 $rs=$this->db->get();
                 return $rs->result();
             }
-            public function get_all_count($cate_id){
+            public function get_all_count($cate_id,$title){
                     $this->db->select('blog.*,cate.cate_name');
                     $this->db->from('t_blog blog');
                     $this->db->join('t_blog_category cate', 'blog.cate_id = cate.cate_id');
                     if($cate_id!=0){
                         $this->db->where('cate.cate_id',$cate_id);
                     }
+                if($title){
+                    $this->db->like('blog.title',$title);
+                }
                     return $this->db->count_all_results();
             }
         }

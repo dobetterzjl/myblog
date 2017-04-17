@@ -12,9 +12,10 @@ class Welcome extends CI_Controller {
         $this->load->view('admin/admin_category');
     }
     public function blog($cate_id=0,$offset=0){
+        $title= $this->input->get('title');
         $this->load->model('blog_category_model');
         $this->load->model('blog_model');
-        $total_row=$this->blog_model->get_all_count($cate_id);
+        $total_row=$this->blog_model->get_all_count($cate_id,$title);
 //        $offset=$this->uri->segment(3);
 //        $offset=!$offset?0:$offset;
 //        分页配置开始
@@ -43,10 +44,17 @@ class Welcome extends CI_Controller {
 //        分页配置结束
 
         $categories=$this->blog_category_model->get_all();
-        $blogs=$this->blog_model->get_by_page($cate_id,$config['per_page'],$offset);
+        $blogs=$this->blog_model->get_by_page($cate_id,$title,$config['per_page'],$offset);
         $this->load->view('admin/admin_blog',array(
             'categories'=>$categories,
             'blogs'=>$blogs
+        ));
+    }
+    public function add_blog(){
+        $this->load->model('blog_category_model');
+        $categories=$this->blog_category_model->get_all();
+        $this->load->view('admin/add_blog',array(
+            'categories'=>$categories,
         ));
     }
 }

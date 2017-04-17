@@ -62,5 +62,6 @@ class Welcome extends CI_Controller {
 		$blogs=$this->blog_model->get_by_page(6,$offset);
 		echo json_encode($blogs);
 	}
+	
 }
 
