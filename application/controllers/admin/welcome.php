@@ -57,4 +57,57 @@ class Welcome extends CI_Controller {
             'categories'=>$categories,
         ));
     }
+    public function post_blog(){
+
+
+        $config['upload_path']      = './upload/';
+        $config['allowed_types']    = 'gif|jpg|png';
+        $config['max_size']     = 3072;
+        $config['file_name'] = date("YmdHis").'-'.rand(10000,99999);
+        $this->load->library('upload', $config);
+
+        if ( $this->upload->do_upload('img'))
+        {
+            $title = htmlspecialchars($this->input->post('title'));
+            $cate_id = $this->input->post('cateId');
+            $clicked = htmlspecialchars($this->input->post('clicked'));
+            $content = htmlspecialchars($this->input->post('content'));
+            $upload_data = $this->upload->data();
+//            图像处理类
+            $this->load->library('image_lib');
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $upload_data['full_path'];
+            $config['thumb_marker']='_thumb';
+            $config['create_thumb'] = TRUE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width']     = 323;
+            $config['height']   = 215;
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();
+
+            $img = 'upload/'.$upload_data['raw_name'].'_thumb'.$upload_data['file_ext'];
+
+            $config['image_library'] = 'gd2';
+            $config['source_image'] = $upload_data['full_path'];
+            $config['create_thumb'] = TRUE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width']     = 1170;
+            $config['height']   = 400;
+            $this->load->library('image_lib', $config);
+            $this->image_lib->resize();
+            $this->image_lib->clear();
+
+            $big_img = 'upload/'.$upload_data['raw_name'].$upload_data['file_ext'];
+            $this->load->model('blog_model');
+            $row =  $this->blog_model->save_blog($title,$cate_id,$clicked,$content,$img,$big_img);
+            if($row){
+                redirect('admin/blog');
+            }else{
+                echo "文章上传失败";
+            }
+        }else{
+            echo "文件上传失败！";
+        }
+
+    }
 }

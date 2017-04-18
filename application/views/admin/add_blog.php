@@ -15,6 +15,7 @@
     <meta name="apple-mobile-web-app-title" content="Amaze UI" />
     <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
     <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/kindedictor/themes/default/default.css" />
 </head>
 <body>
 <!--[if lte IE 9]>
@@ -44,79 +45,81 @@
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
                     <li class="am-active"><a href="#tab1">详细描述</a></li>
                 </ul>
+                <form action="admin/post_blog" method="post" enctype="multipart/form-data">
+                    <div class="am-tabs-bd">
+                        <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                            <form class="am-form">
+                                <div class="am-g am-margin-top">
+                                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                        文章标题
+                                    </div>
+                                    <div class="am-u-sm-8 am-u-md-4">
+                                        <input type="text" class="am-input-sm" name="title">
+                                    </div>
+                                    <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
+                                </div>
 
-                <div class="am-tabs-bd">
-                    <div class="am-tab-panel am-fade am-in am-active" id="tab1">
-                        <form class="am-form">
-                            <div class="am-g am-margin-top">
-                                <div class="am-u-sm-4 am-u-md-2 am-text-right">
-                                    文章标题
-                                </div>
-                                <div class="am-u-sm-8 am-u-md-4">
-                                    <input type="text" class="am-input-sm">
-                                </div>
-                                <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
-                            </div>
-
-                            <div class="am-g am-margin-top">
-                                <div class="am-u-sm-4 am-u-md-2 am-text-right">
-                                    文章类别
-                                </div>
-                                <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
-                                    <div class="am-form-group">
-                                        <select data-am-selected="{btnSize: 'sm'}" id="category">
-                                            <option value="0">所有类别</option>
-                                            <?php
-                                            foreach($categories as $category){
-                                                ?>
-                                                <option value="<?php echo $category->cate_id;?>"><?php echo $category->cate_name;?></option>
+                                <div class="am-g am-margin-top">
+                                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                        文章类别
+                                    </div>
+                                    <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+                                        <div class="am-form-group">
+                                            <select data-am-selected="{btnSize: 'sm'}" id="category" name="cateId">
+                                                <option value="0">所有类别</option>
                                                 <?php
-                                            }
-                                            ?>
-                                        </select>
+                                                foreach($categories as $category){
+                                                    ?>
+                                                    <option value="<?php echo $category->cate_id;?>"><?php echo $category->cate_name;?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="am-g am-margin-top">
-                                <div class="am-u-sm-4 am-u-md-2 am-text-right">
-                                    点击率
-                                </div>
-                                <div class="am-u-sm-8 am-u-md-4">
-                                    <input type="text" class="am-input-sm" name="clicked">
-                                </div>
-                                <div class="am-hide-sm-only am-u-md-6">选填</div>
-                            </div>
-
-                            <div class="am-g am-margin-top">
-                                <div class="am-u-sm-4 am-u-md-2 am-text-right">
-                                    图片
+                                <div class="am-g am-margin-top">
+                                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                        点击率
+                                    </div>
+                                    <div class="am-u-sm-8 am-u-md-4">
+                                        <input type="text" class="am-input-sm" name="clicked">
+                                    </div>
+                                    <div class="am-hide-sm-only am-u-md-6">选填</div>
                                 </div>
 
-                                    <input type="file" class="am-input-sm" name="img">
+                                <div class="am-g am-margin-top">
+                                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                        图片
+                                    </div>
+
+                                    <input type="file" class="am-input-sm" name="img" >
 
 
-                            </div>
-
-                            <div class="am-g am-margin-top-sm">
-                                <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
-                                    内容描述
                                 </div>
-                                <div class="am-u-sm-12 am-u-md-10">
-                                    <textarea rows="10" placeholder="请使用富文本编辑插件"></textarea>
-                                </div>
-                            </div>
 
-                        </form>
+                                <div class="am-g am-margin-top-sm">
+                                    <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
+                                        内容描述
+                                    </div>
+                                    <div class="am-u-sm-12 am-u-md-10">
+                                        <textarea rows="10" placeholder="请使用富文本编辑插件" name="content"></textarea>
+                                    </div>
+                                </div>
+                                <div class="am-margin">
+                                    <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+                                    <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
 
-                </div>
+
             </div>
 
-            <div class="am-margin">
-                <button type="button" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
-                <button type="button" class="am-btn am-btn-primary am-btn-xs">放弃保存</button>
-            </div>
+
         </div>
 
         <footer class="admin-content-footer">
@@ -146,5 +149,22 @@
 <!--<![endif]-->
 <script src="assets/js/amazeui.min.js"></script>
 <script src="assets/js/app.js"></script>
+
+<script charset="utf-8" src="assets/kindedictor/kindeditor-min.js"></script>
+<script charset="utf-8" src="assets/kindedictor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+    var editor;
+    KindEditor.ready(function(K) {
+        editor = K.create('textarea[name="content"]', {
+            resizeType : 1,
+            allowPreviewEmoticons : false,
+            allowImageUpload : false,
+            items : [
+                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+                'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+        });
+    });
+</script>
 </body>
 </html>

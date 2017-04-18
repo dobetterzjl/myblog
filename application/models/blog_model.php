@@ -8,6 +8,11 @@
                 $this->db->limit(9);//限制取出九条
                 return $this->db->get('t_blog')->result();
             }
+            public function get_all_list()
+            {
+                $this->db->order_by('post_date', 'desc');//按降序排列{‘asc’升序排列}
+                return $this->db->get('t_blog')->result();
+            }
 
             public function get_by_category($cate_id)
             {
@@ -50,6 +55,17 @@
                     $this->db->like('blog.title',$title);
                 }
                     return $this->db->count_all_results();
+            }
+            public function save_blog($title,$cate_id,$clicked,$content,$img,$big_img){
+                $this->db->insert('t_blog',array(
+                   'title' =>$title,
+                    'cate_id'=>$cate_id,
+                    'clicked' =>$clicked,
+                    'content' =>$content,
+                    'img'=>$img,
+                    'big_img'=>$big_img
+                ));
+                return $this->db->affected_rows();
             }
         }
 ?>
