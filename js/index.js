@@ -1,4 +1,4 @@
-require(['jquery','scrollfix'],function ($) {
+require(['jquery','scrollfix','footer'],function ($) {
     $('.prot-li').on('click',function () {
         $(this).addClass('clickStyle').siblings().removeClass('clickStyle');
     });
